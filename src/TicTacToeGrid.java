@@ -8,7 +8,8 @@ public class TicTacToeGrid extends JPanel {
         this.buttons = new JButton[rows*columns];
         for(int i = 0; i<rows*columns; i++) {
             this.buttons[i] = new JButton();
-            this.buttons[i].setText("C");
+            this.buttons[i].setText("");
+            this.buttons[i].addActionListener(new ButtonListener());
             this.add(buttons[i]);
         }
     }

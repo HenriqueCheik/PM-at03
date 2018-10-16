@@ -2,7 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class InformationPanel extends JPanel {
+    private JLabel informationLabel;
     public InformationPanel() {
-        this.add(new JLabel("Bem vindo ao Jogo da Velha! Clique em qualquer botão para iniciar o jogo"), BorderLayout.CENTER);
+        this.informationLabel = new JLabel("Bem vindo ao Jogo da Velha! Clique em qualquer botão para iniciar o jogo");
+        this.add(informationLabel, BorderLayout.CENTER);
     }
 }

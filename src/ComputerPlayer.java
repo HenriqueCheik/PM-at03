@@ -30,6 +30,9 @@ public class ComputerPlayer {
 
     public JButton chooseTile() {
         int maxRange = this.possibilities.size();
+        if(maxRange == 0){
+            return null;
+        }
         Random rn = new Random();
         return this.possibilities.remove(rn.nextInt(maxRange));
     }

@@ -27,5 +27,6 @@ public class TicTacToeGrid extends JPanel {
             button.setText("");
         }
         listener.getComputer().resetPossibilities();
+        InformationPanel.setText("Bem vindo ao Jogo da Velha! Clique em qualquer botão para iniciar o jogo");
     }
 }

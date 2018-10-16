@@ -3,19 +3,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ButtonListener implements ActionListener {
-    private int playerTurn = 0;
+    private int playerTurn = 1;
     private ComputerPlayer computer;
 
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton clickedButton = (JButton)e.getSource();
-        if(playerTurn == 0) {
+        if(playerTurn == 1) {
             clickedButton.setText("X");
-            playerTurn = 1;
+            playerTurn = 2;
+            InformationPanel.setText("Turno do jogador " + playerTurn);
             this.computer.removePossibility(clickedButton);
             clickedButton = this.computer.chooseTile();
-            clickedButton.setText("O");
-            playerTurn = 0;
+            if(clickedButton != null){
+                clickedButton.setText("O");
+            }
+            playerTurn = 1;
+            InformationPanel.setText("Turno do jogador " + playerTurn);
         }
 
     }

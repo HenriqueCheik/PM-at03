@@ -3,20 +3,20 @@ import java.awt.event.ActionListener;
 
 public class ApplicationMenuListener implements ActionListener {
     private String actionType;
-    private TicTacToeGrid grid;
+    private Commander commander;
 
-    public ApplicationMenuListener(String actionType, TicTacToeGrid grid) {
+    public ApplicationMenuListener(String actionType, Commander commander) {
         this.actionType = actionType;
-        this.grid = grid;
+        this.commander = commander;
     }
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (actionType.equals("newGame")) {
-            grid.reset();
+            commander.newGame();
         } else if (actionType.equals("exit")) {
-            System.exit(0);
+            commander.exitGame();
         }
     }
 }

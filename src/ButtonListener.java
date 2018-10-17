@@ -3,32 +3,46 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ButtonListener implements ActionListener {
-    private int playerTurn = 1;
-    private ComputerPlayer computer;
+    private int playerTurn;
+    private Commander commander;
+    private boolean gameEnd;
+
+    public ButtonListener(Commander commander) {
+        this.commander = commander;
+        newGame();
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton clickedButton = (JButton)e.getSource();
-        if(playerTurn == 1) {
+        if(playerTurn == 1 && clickedButton.getText().equals("") && !gameEnd) {
             clickedButton.setText("X");
-            playerTurn = 2;
-            InformationPanel.setText("Turno do jogador " + playerTurn);
-            this.computer.removePossibility(clickedButton);
-            clickedButton = this.computer.chooseTile();
-            if(clickedButton != null){
-                clickedButton.setText("O");
+            if(commander.checkWin()) {
+                gameEnd = true;
+                commander.displayMessage("Você venceu!");
+                return;
             }
+            playerTurn = 2;
+            commander.computerPlay(clickedButton);
             playerTurn = 1;
-            InformationPanel.setText("Turno do jogador " + playerTurn);
+            if(commander.checkWin()) {
+                gameEnd = true;
+                commander.displayMessage("O computador venceu!");
+                return;
+            }
+            if(commander.checkTie()) {
+                gameEnd = true;
+                commander.displayMessage("O jogo empatou!");
+            }
+
         }
-
+        else {
+            commander.invalidPlay(gameEnd);
+        }
     }
 
-    public void setComputer(ComputerPlayer computer) {
-        this.computer = computer;
-    }
-
-    public ComputerPlayer getComputer() {
-        return computer;
+    public void newGame() {
+        playerTurn = 1;
+        gameEnd = false;
     }
 }

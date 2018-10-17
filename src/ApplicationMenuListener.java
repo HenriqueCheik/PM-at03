@@ -13,8 +13,10 @@ public class ApplicationMenuListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (actionType.equals("newGame")) {
-            commander.newGame();
+        if (actionType.equals("newGame1")) {
+            commander.newGame(1);
+        } else if (actionType.equals("newGame2")) {
+            commander.newGame(2);
         } else if (actionType.equals("exit")) {
             commander.exitGame();
         }

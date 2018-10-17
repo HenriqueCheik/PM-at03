@@ -8,14 +8,17 @@ public class ApplicationFrame extends JFrame {
 
         this.menuBar = new JMenuBar();
         this.setJMenuBar(menuBar);
-        JMenu fileMenu = new JMenu("Arquivo");
-        JMenuItem newGame = new JMenuItem("Novo Jogo");
-        newGame.addActionListener(new ApplicationMenuListener("newGame", commander));
+        JMenu fileMenu = new JMenu("Opções");
+        JMenuItem newGame1 = new JMenuItem("Novo Jogo - Jogador humano começa");
+        newGame1.addActionListener(new ApplicationMenuListener("newGame1", commander));
+        JMenuItem newGame2 = new JMenuItem("Novo Jogo - Computador começa");
+        newGame2.addActionListener(new ApplicationMenuListener("newGame2", commander));
         JMenuItem exit = new JMenuItem("Sair");
         exit.addActionListener(new ApplicationMenuListener("exit", commander));
 
         this.menuBar.add(fileMenu);
-        fileMenu.add(newGame);
+        fileMenu.add(newGame1);
+        fileMenu.add(newGame2);
         fileMenu.add(exit);
 
         Container content = this.getContentPane();

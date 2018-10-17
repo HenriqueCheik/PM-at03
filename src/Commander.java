@@ -15,10 +15,13 @@ public class Commander {
         System.exit(0);
     }
 
-    public void newGame() {
-        grid.reset();
+    public void newGame(int firstPlayer) {
         infPanel.setText("Bem vindo ao Jogo da Velha! Clique em qualquer botão para iniciar o jogo");
+        grid.reset();
         computer.resetPossibilities();
+        if(firstPlayer == 2) {
+            computerPlay(null);
+        }
     }
 
     public void computerPlay(JButton clickedButton) {

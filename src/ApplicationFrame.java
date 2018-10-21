@@ -3,6 +3,7 @@ import java.awt.*;
 
 public class ApplicationFrame extends JFrame {
     private JMenuBar menuBar;
+
     public ApplicationFrame(InformationPanel infPanel, TicTacToeGrid grid, Commander commander) {
         super("Cheik's TicTacToe Game");
 

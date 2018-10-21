@@ -7,13 +7,12 @@ import java.util.Random;
 public class ComputerPlayer {
     private List<JButton> possibilities;
     private TicTacToeGrid grid;
+
     public ComputerPlayer(TicTacToeGrid grid) {
         this.possibilities = new ArrayList<JButton>();
         this.grid = grid;
         addPossibilities();
     }
-
-
 
     private void addPossibilities() {
         this.possibilities.addAll(Arrays.asList(grid.getButtons()));

@@ -10,7 +10,6 @@ public class ApplicationMenuListener implements ActionListener {
         this.commander = commander;
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (actionType.equals("newGame1")) {
